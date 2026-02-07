@@ -4,9 +4,9 @@
                 <table class="table table-bordered text-center mb-0">
                     <thead class="bg-secondary text-dark">
                         <tr>
-                            <th>Item</th>
-                            <th>Harga</th>
-                            <th>Jumlah</th>
+                            <th>Items</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
                             <th>Total</th>
                             <th>Remove</th>
                         </tr>
@@ -53,8 +53,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h2 class="h2">Anda yakin?</h2>
-        <p>Data akan dihapus</p>
+        <h2 class="h2">Are You Sure?</h2>
+        <p>This order will be removed. Do you want to proceed?</p>
       </div>
       <div class="modal-footer">
         <a href="#" role="button" id="delete-button" class="btn btn-danger">Delete</a>
@@ -67,8 +67,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h2 class="h2">Anda yakin?</h2>
-        <p>Melakukan Checkout</p>
+        <h2 class="h2">Order Confirmation</h2>
+        <p>Please confirm your order details to continue</p>
       </div>
       <div class="modal-footer">
         <a href="#" role="button" id="proceed-button" class="btn btn-danger">Proceed</a>

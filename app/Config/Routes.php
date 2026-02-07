@@ -36,6 +36,9 @@ $routes->add('/cartAdd', 'Cart::tambahCart');
 $routes->get('/cart/(:segment)/delete', 'Cart::delete/$1');
 $routes->add('/checkout', 'Cart::checkout');
 $routes->add('/cart/(:segment)/finishTrans', 'Cart::finishTrans/$1');
+$routes->get('/transaksi', 'Transaksi::index');
+$routes->add('/transaksi/(:segment)/detail', 'Transaksi::detail/$1');
+$routes->get('tentang', 'Tentang::index');
 
 
 

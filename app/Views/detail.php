@@ -14,7 +14,7 @@
             <div class="col-lg-12 pb-5">
                 <h3 class="font-weight-semi-bold"><?= $brg['nama_barang'] ?></h3>
                 <div class="d-flex mb-3">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Warna:</p>
+                    <p class="text-dark font-weight-medium mb-0 mr-3">Option:</p>
                     <select name="id_item" class="form-control">
                         <?php foreach($item as $itemlist): ?>
                                 <option value="<?= $itemlist['id_item'] ?>"><?= $itemlist['warna'].' ('.number_to_currency($itemlist['harga'], 'IDR', 'en_ID', 2).")"; ?></option>

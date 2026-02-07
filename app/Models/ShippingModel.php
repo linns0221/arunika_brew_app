@@ -9,7 +9,7 @@ class ShippingModel extends Model
     protected $primaryKey = 'id_shipping';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id_transaksi','tgl_pengiriman','nama_lengkap','email','no_hp','alamat','kota','kodepos'];
+    protected $allowedFields = ['id_transaksi','tgl_pengiriman','nama_lengkap','email','no_hp','no_meja','catatan',];
 
     public function Transaksi()
     {

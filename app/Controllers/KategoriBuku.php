@@ -26,7 +26,6 @@ class KategoriBuku extends BaseController
         $data['jmlitem'] = $detail->countDataWithCriteria($idTransaksi);
         echo view('part/header');
         echo view('part/topbar', $data);
-        echo view('part/navbar',$data);
         echo view('kategoribuku',$data);
         echo view('part/footer');
     }
@@ -48,7 +47,6 @@ class KategoriBuku extends BaseController
         $data['brg'] = $barang->where('id_kategori', $id)->findAll();
         echo view('part/header');
         echo view('part/topbar',$data);
-        echo view('part/navbar',$data);
         echo view('kategoribuku',$data);
         echo view('part/footer');
     }
@@ -72,7 +70,6 @@ class KategoriBuku extends BaseController
         $data['item'] = $item->where('kode_barang', $id)->findAll();
         echo view('part/header');
         echo view('part/topbar',$data);
-        echo view('part/navbar',$data);
         echo view('detail',$data);
         echo view('part/footer');
     }
