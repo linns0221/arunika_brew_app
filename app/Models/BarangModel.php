@@ -5,7 +5,7 @@ class BarangModel extends Model
 {
     protected $table      = 'tbl_barang';
     protected $primaryKey = 'kode_barang';
-    protected $allowedFields = ['kode_barang','id_kategori','nama_barang','gambar'];
+    protected $allowedFields = ['kode_barang','id_kategori','nama_barang','gambar','deskripsi'];
     public function generateKodeBarang()
     {
         $prefix = 'BRG';
