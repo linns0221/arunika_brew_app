@@ -20,7 +20,11 @@
                             $total=$total+$subtotal;
                         ?>
                         <tr>
-                            <td align="left"><img src="<?= base_url() . "/file_gambar/" . $brglist['gambar']; ?>" alt="" style="width: 50px;"> <?= $brglist['nama_barang'] ?></td>
+                            <td align="left"><img src="<?= base_url() . "/file_gambar/" . $brglist['gambar']; ?>" alt="" style="width: 50px;"> <?= $brglist['nama_barang'] ?>
+                            <?php if(!empty($brglist['warna'])): ?>
+                                    <br><small class="text-muted">Option: <?= $brglist['warna'] ?></small>
+                                <?php endif; ?>
+                            </td>
                             <td class="align-middle"><?= $brglist['harga'] ?></td>
                             <td class="align-middle"><?= $brglist['jumlah'] ?></td>
                             <td class="align-middle"><?= $subtotal ?></td>
@@ -71,7 +75,7 @@
         <p>Please confirm your order details to continue</p>
       </div>
       <div class="modal-footer">
-        <a href="#" role="button" id="proceed-button" class="btn btn-danger">Proceed</a>
+        <a href="#" role="button" id="proceed-button" class="btn btn-success">Proceed</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       </div>
     </div>

@@ -1,3 +1,24 @@
+<?php
+use App\Models\TransaksiModel;
+use App\Models\DetailTransaksiModel;
+
+$jmlitem = 0;
+if(session()->get('id_user')) {
+    $userID = session()->get('id_user');
+    $transaksi = new TransaksiModel();
+    $detail = new DetailTransaksiModel();
+
+    $cek = $transaksi->where('id_user', $userID)
+                     ->where('status', 'pending')
+                     ->first();
+
+    if($cek) {
+        $jmlitem = $detail->countDataWithCriteria($cek['id_transaksi']);
+    }
+}
+?>
+
+
 <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container">

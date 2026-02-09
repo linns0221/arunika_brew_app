@@ -111,9 +111,34 @@ class Cart extends BaseController
     public function delete($id)
     {
         $detail = new DetailTransaksiModel();
-        $detail->delete($id);
+        $db = \Config\Database::connect();
+
+        // Ambil id_transaksi dari detail yang akan dihapus
+        $itemDetail = $detail->find($id);
+
+        if ($itemDetail) {
+            $idTransaksi = $itemDetail['id_transaksi'];
+
+            // Hapus item dari tbl_detail_transaksi
+            $detail->delete($id);
+
+            // Cek sisa item di transaksi ini
+            $sisaItem = $detail->where('id_transaksi', $idTransaksi)->countAllResults();
+
+            if ($sisaItem == 0) {
+                // Hapus transaksi di tbl_transaksi
+                $builder = $db->table('tbl_transaksi');
+                $builder->where('id_transaksi', $idTransaksi)->delete();
+
+                // Hapus data shipping terkait juga
+                $builderShip = $db->table('tbl_shipping');
+                $builderShip->where('id_transaksi', $idTransaksi)->delete();
+            }
+        }
+
         return redirect()->to('cart');
     }
+
 
     /* =========================
        HALAMAN CHECKOUT
