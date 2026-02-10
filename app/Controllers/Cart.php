@@ -197,7 +197,7 @@ class Cart extends BaseController
             'nama_lengkap' => [
                 'rules'  => 'required',
                 'errors' => [
-                    'required' => 'Full name is required'
+                    'required' => 'Your name is required'
                 ]
             ],
             'no_meja' => [

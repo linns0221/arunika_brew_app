@@ -10,27 +10,32 @@
             <div class="row">
                 <div class="col-md-12 form-group">
                     <label>Name</label>
-                    <input class="form-control" type="text" name="nama_lengkap" required>
+                    <input class="form-control" type="text" name="nama_lengkap" 
+                        placeholder="Your name is required" required>
                 </div>
 
                 <div class="col-md-6 form-group">
                     <label>Email</label>
-                    <input class="form-control" type="email" name="email" required>
+                    <input class="form-control" type="email" name="email"
+                        placeholder="(optional)">
                 </div>
 
                 <div class="col-md-6 form-group">
                     <label>Phone</label>
-                    <input class="form-control" type="text" name="no_hp" required>
+                    <input class="form-control" type="text" name="no_hp"
+                        placeholder="(optional)">
                 </div>
 
                 <div class="col-md-12 form-group">
                     <label>Table Number</label>
-                    <input class="form-control" type="text" name="no_meja" required>
+                    <input class="form-control" type="text" name="no_meja" 
+                        placeholder="Table number must be a number" required>
                 </div>
 
                 <div class="col-md-12 form-group">
                     <label>Notes</label>
-                    <input class="form-control" type="text" name="catatan">
+                    <input class="form-control" type="text" name="catatan"
+                        placeholder="(optional)">
                 </div>
             </div>
         </div>

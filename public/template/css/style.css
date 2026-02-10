@@ -36,6 +36,17 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+::placeholder {
+    font-style: italic;
+    color: #888;
+}
+
+::placeholder {
+    font-style: italic;
+    color: rgba(0,0,0,0.4);
+}
+
+
 h2 {
     color: #7b5234; /* coffee brown */
 }
