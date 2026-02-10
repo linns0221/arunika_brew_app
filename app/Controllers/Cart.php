@@ -197,14 +197,14 @@ class Cart extends BaseController
             'nama_lengkap' => [
                 'rules'  => 'required',
                 'errors' => [
-                    'required' => 'Nama lengkap wajib diisi'
+                    'required' => 'Full name is required'
                 ]
             ],
             'no_meja' => [
                 'rules'  => 'required|numeric',
                 'errors' => [
-                    'required' => 'Nomor meja wajib diisi',
-                    'numeric'  => 'Nomor meja harus berupa angka'
+                    'required' => 'Table number is required',
+                    'numeric'  => 'Table number must be a number'
                 ]
             ]
         ]);
