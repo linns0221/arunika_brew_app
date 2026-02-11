@@ -36,6 +36,48 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.thankyou-hero {
+    background: linear-gradient(180deg, #ffffff, #ffffff);
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.thankyou-section h1 {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.thankyou-section p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.thank-icon {
+    font-size: 48px;
+    color: #c47a2c;
+    margin-bottom: 20px;
+}
+
+.btn-brew {
+    background-color: #c47a2c !important; /* WARNA LANGSUNG MUNCUL */
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 500;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-brew:hover {
+    background-color: #8a4f1c !important;
+    color: white !important;
+}
+s
+
+
+
 ::placeholder {
     font-style: italic;
     color: #888;
