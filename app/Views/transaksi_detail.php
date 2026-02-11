@@ -40,6 +40,10 @@
                         <th>User</th>
                         <td>: <?= $transaksi['username']; ?></td>
                     </tr>
+                    <tr>
+                        <th>Nama Pemesan</th>
+                        <td>: <?= $shipping['nama_lengkap'] ?? '-'; ?></td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -78,10 +82,20 @@
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
+
+                    <!-- FOOTER TOTAL + MEJA + CATATAN -->
                     <tfoot>
                         <tr>
                             <th colspan="4" class="text-right">Total Biaya</th>
                             <th>Rp <?= number_format($total, 0, ',', '.'); ?></th>
+                        </tr>
+                        <tr>
+                            <th colspan="4" class="text-right">Nomor Meja</th>
+                            <th><?= $shipping['no_meja'] ?? '-'; ?></th>
+                        </tr>
+                        <tr>
+                            <th colspan="4" class="text-right">Catatan</th>
+                            <th><?= $shipping['catatan'] ?? '-'; ?></th>
                         </tr>
                     </tfoot>
                 </table>

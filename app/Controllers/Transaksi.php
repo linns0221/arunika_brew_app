@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\TransaksiModel;
 use App\Models\DetailTransaksiModel;
+use App\Models\ShippingModel;
+
 
 class Transaksi extends BaseController
 {
@@ -22,13 +24,18 @@ class Transaksi extends BaseController
     {
         $transaksi = new TransaksiModel();
         $detail = new DetailTransaksiModel();
+        $shipping = new ShippingModel();
+
         $data['transaksi'] = $transaksi->cek_transaksi($id);
         $data['detail'] = $detail->getItemsWithDetail($id);
+        $data['shipping'] = $shipping->where('id_transaksi', $id)->first();
+
         echo view('part_adm/header');
         echo view('part_adm/top_menu', $data);
         echo view('part_adm/side_menu', $data);
         echo view('transaksi_detail', $data);
         echo view('part_adm/footer');
     }
+
 
 }
