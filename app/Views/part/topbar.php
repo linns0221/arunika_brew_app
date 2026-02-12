@@ -57,7 +57,7 @@ if(session()->get('id_user')) {
                             <a class="dropdown-item" href="<?= base_url('kategoribuku'); ?>">
                                 All Categories
                             </a>
-                            <a class="dropdown-item" href="<?= base_url('kategoribuku/17/view'); ?>">
+                            <a class="dropdown-item" href="<?= base_url('kategoribuku/19/view'); ?>">
                                 Beverages
                             </a>
                             <a class="dropdown-item" href="<?= base_url('kategoribuku/18/view'); ?>">
