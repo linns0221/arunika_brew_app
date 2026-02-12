@@ -10,7 +10,7 @@ class Dashboard extends BaseController
     {
         $db = Database::connect();
 
-        // ===== TODAY REVENUE =====
+        // ================= TODAY REVENUE =================
         $today = $db->query("
             SELECT SUM(d.jumlah * i.harga) AS total
             FROM tbl_transaksi t
@@ -19,7 +19,7 @@ class Dashboard extends BaseController
             WHERE DATE(t.tgl_transaksi) = CURDATE()
         ")->getRow();
 
-        // ===== MONTHLY REVENUE =====
+        // ================= MONTHLY REVENUE =================
         $month = $db->query("
             SELECT SUM(d.jumlah * i.harga) AS total
             FROM tbl_transaksi t
@@ -29,15 +29,15 @@ class Dashboard extends BaseController
             AND YEAR(t.tgl_transaksi) = YEAR(CURDATE())
         ")->getRow();
 
-        // ===== TOTAL ORDERS =====
+        // ================= TOTAL ORDERS =================
         $orders = $db->query("
             SELECT COUNT(*) AS total_orders FROM tbl_transaksi
         ")->getRow();
 
-        // ===== REVENUE TREND 7 DAYS =====
+        // ================= REVENUE TREND 7 DAYS =================
         $trend = $db->query("
-            SELECT DATE(t.tgl_transaksi) as tanggal,
-                   SUM(d.jumlah * i.harga) as total
+            SELECT DATE(t.tgl_transaksi) AS tanggal,
+                   SUM(d.jumlah * i.harga) AS total
             FROM tbl_transaksi t
             JOIN tbl_detail_transaksi d ON t.id_transaksi = d.id_transaksi
             JOIN tbl_item i ON d.id_item = i.id_item
@@ -46,23 +46,36 @@ class Dashboard extends BaseController
             ORDER BY tanggal ASC
         ")->getResultArray();
 
-        // ===== SALES BY CATEGORY =====
+        // ================= DAILY ORDER TREND =================
+        $dailyTrend = $db->query("
+            SELECT DATE(t.tgl_transaksi) AS tanggal,
+                   COUNT(t.id_transaksi) AS total_order
+            FROM tbl_transaksi t
+            WHERE t.tgl_transaksi >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+            GROUP BY DATE(t.tgl_transaksi)
+            ORDER BY tanggal ASC
+        ")->getResultArray();
+
+        // ================= SALES BY CATEGORY =================
         $category = $db->query("
-            SELECT k.nama_kategori, SUM(d.jumlah) as total
+            SELECT k.nama_kategori, SUM(d.jumlah) AS total
             FROM tbl_detail_transaksi d
             JOIN tbl_item i ON d.id_item = i.id_item
             JOIN tbl_kategori k ON i.id_kategori = k.id_kategori
             GROUP BY k.nama_kategori
         ")->getResultArray();
 
+        // ================= DATA TO VIEW =================
         $data = [
             'todayRevenue'   => $today->total ?? 0,
             'monthlyRevenue' => $month->total ?? 0,
             'totalOrders'    => $orders->total_orders ?? 0,
             'trend'           => $trend,
+            'dailyTrend'      => $dailyTrend,
             'category'        => $category
         ];
 
+        // LOAD VIEW LAYOUT
         echo view('part_adm/header');
         echo view('part_adm/top_menu');
         echo view('part_adm/side_menu');

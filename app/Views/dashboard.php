@@ -20,7 +20,7 @@
 <section class="content">
 <div class="container-fluid">
 
-<!-- STAT CARDS -->
+<!-- ================= STAT CARDS ================= -->
 <div class="row">
 
   <!-- Today Revenue -->
@@ -69,9 +69,11 @@
     </div>
   </div>
 
-</div> <!-- END ROW -->
+</div>
+<!-- END STAT CARDS -->
 
-<!-- CHARTS -->
+
+<!-- ================= CHARTS ================= -->
 <div class="row mt-4">
 
   <!-- Revenue Trend -->
@@ -79,7 +81,7 @@
     <div class="card shadow-sm">
       <div class="card-body">
         <h5>Revenue Trend</h5>
-        <p class="text-muted">Last 7 days of revenue</p>
+        <p class="text-muted">Last 7 days revenue</p>
         <canvas id="revenueChart"></canvas>
       </div>
     </div>
@@ -98,6 +100,19 @@
 
 </div>
 
+<!-- ================= DAILY ORDER CHART ================= -->
+<div class="row mt-4">
+  <div class="col-12">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>Daily Orders Trend</h5>
+        <p class="text-muted">Last 7 days order count</p>
+        <canvas id="dailyOrderChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 </section>
 </div>
@@ -108,6 +123,7 @@
 
 <script>
 <?php
+// ================= REVENUE TREND =================
 $trendDates = [];
 $trendTotals = [];
 
@@ -118,6 +134,7 @@ if (!empty($trend)) {
   }
 }
 
+// ================= CATEGORY =================
 $catNames = [];
 $catTotals = [];
 
@@ -127,9 +144,20 @@ if (!empty($category)) {
     $catTotals[] = $c['total'];
   }
 }
+
+// ================= DAILY ORDER =================
+$dailyDates = [];
+$dailyOrders = [];
+
+if (!empty($dailyTrend)) {
+  foreach ($dailyTrend as $d) {
+    $dailyDates[] = $d['tanggal'];
+    $dailyOrders[] = $d['total_order'];
+  }
+}
 ?>
 
-// Revenue Line Chart
+// ================= REVENUE CHART =================
 const revenueCtx = document.getElementById('revenueChart');
 new Chart(revenueCtx, {
   type: 'line',
@@ -147,7 +175,7 @@ new Chart(revenueCtx, {
   }
 });
 
-// Category Pie Chart
+// ================= CATEGORY PIE =================
 const categoryCtx = document.getElementById('categoryChart');
 new Chart(categoryCtx, {
   type: 'pie',
@@ -158,6 +186,31 @@ new Chart(categoryCtx, {
       backgroundColor: ['#ff6b00','#ff9f40','#ffc107','#4caf50','#2196f3','#9c27b0'],
       borderWidth: 1
     }]
+  }
+});
+
+// ================= DAILY ORDER CHART =================
+const dailyCtx = document.getElementById('dailyOrderChart');
+new Chart(dailyCtx, {
+  type: 'line',
+  data: {
+    labels: <?= json_encode($dailyDates) ?>,
+    datasets: [{
+      label: 'Daily Orders',
+      data: <?= json_encode($dailyOrders) ?>,
+      borderColor: '#4caf50',
+      backgroundColor: 'rgba(76,175,80,0.2)',
+      borderWidth: 2,
+      tension: 0.3,
+      fill: true
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
   }
 });
 </script>
