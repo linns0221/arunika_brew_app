@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Transaksi</h1>
+            <h1>Orders</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Transaksi</li>
+              <li class="breadcrumb-item active">Orders</li>
             </ol>
           </div>
         </div>
@@ -23,7 +23,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Daftar Transaksi</h3>
+          <h3 class="card-title">Order List</h3>
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
@@ -40,9 +40,9 @@
             <tr>
                 <th>ID Transaksi</th>
                 <th>User</th>
-                <th>Tanggal</th>
+                <th>Date</th>
                 <th>Total</th>
-                <th>Aksi</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
                     <td>
                         <a href="<?= base_url('transaksi/' . $transaksiList['id_transaksi'] . '/detail'); ?>"
                            class="btn btn-sm btn-outline-secondary">
-                           Detail
+                           Details
                         </a>
                     </td>
                 </tr>
@@ -80,8 +80,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h2 class="h2">Anda yakin?</h2>
-                <p>Data akan dihapus</p>
+                <h2 class="h2">Are you sure?</h2>
+                <p>This data will be permanently deleted</p>
             </div>
             <div class="modal-footer">
                 <a href="#" role="button" id="delete-button" class="btn btn-danger">

@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Category</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Kategori</li>
+              <li class="breadcrumb-item active">Category</li>
             </ol>
           </div>
         </div>
@@ -23,7 +23,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <a href="<?= base_url('kategori/add') ?>" class="btn btn-sm btn-outline-secondary">Tambah Kategori</a>
+          <a href="<?= base_url('kategori/add') ?>" class="btn btn-sm btn-outline-secondary">Add Category</a>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -38,9 +38,9 @@
           <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                  <th>ID Kategori</th>
-                  <th>Nama Kategori</th>
-                  <th>Aksi</th>
+                  <th>ID Category</th>
+                  <th>Category Name</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -74,8 +74,8 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-body">
-            <h2 class="h2">Anda yakin?</h2>
-            <p>Data akan dihapus</p>
+            <h2 class="h2">Are You Sure?</h2>
+            <p>This data will be permanently deleted</p>
           </div>
           <div class="modal-footer">
             <a href="#" role="button" id="delete-button" class="btn btn-danger">Delete</a>

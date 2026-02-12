@@ -5,13 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Detail Transaksi</h1>
+                    <h1>Order details</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?= base_url('transaksi'); ?>">Transaksi</a></li>
-                        <li class="breadcrumb-item active">Detail</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('transaksi'); ?>">Order</a></li>
+                        <li class="breadcrumb-item active">Details</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <!-- Informasi Transaksi -->
         <div class="card">
             <div class="card-header bg-light">
-                <h3 class="card-title">Informasi Transaksi</h3>
+                <h3 class="card-title">Order Information</h3>
             </div>
             <div class="card-body">
                 <table class="table table-borderless mb-0">
@@ -33,7 +33,7 @@
                         <td>: <?= $transaksi['id_transaksi']; ?></td>
                     </tr>
                     <tr>
-                        <th>Tanggal Transaksi</th>
+                        <th>Order Date</th>
                         <td>: <?= date('d M Y', strtotime($transaksi['tgl_transaksi'])); ?></td>
                     </tr>
                     <tr>
@@ -41,7 +41,7 @@
                         <td>: <?= $transaksi['username']; ?></td>
                     </tr>
                     <tr>
-                        <th>Nama Pemesan</th>
+                        <th>Orderer Name</th>
                         <td>: <?= $shipping['nama_lengkap'] ?? '-'; ?></td>
                     </tr>
                 </table>
@@ -51,7 +51,7 @@
         <!-- Detail Item Transaksi -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Detail Item</h3>
+                <h3 class="card-title">Item Details</h3>
             </div>
 
             <div class="card-body">
@@ -60,9 +60,9 @@
                         <tr>
                             <th>No</th>
                             <th>Item</th>
-                            <th>Harga</th>
-                            <th>Jumlah</th>
-                            <th>Subtotal</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,15 +86,15 @@
                     <!-- FOOTER TOTAL + MEJA + CATATAN -->
                     <tfoot>
                         <tr>
-                            <th colspan="4" class="text-right">Total Biaya</th>
+                            <th colspan="4" class="text-right">Grand Total</th>
                             <th>Rp <?= number_format($total, 0, ',', '.'); ?></th>
                         </tr>
                         <tr>
-                            <th colspan="4" class="text-right">Nomor Meja</th>
+                            <th colspan="4" class="text-right">Table Number</th>
                             <th><?= $shipping['no_meja'] ?? '-'; ?></th>
                         </tr>
                         <tr>
-                            <th colspan="4" class="text-right">Catatan</th>
+                            <th colspan="4" class="text-right">Notes</th>
                             <th><?= $shipping['catatan'] ?? '-'; ?></th>
                         </tr>
                     </tfoot>
@@ -103,7 +103,7 @@
 
             <div class="card-footer text-right">
                 <a href="<?= base_url('transaksi'); ?>" class="btn btn-secondary">
-                    Kembali
+                    Back
                 </a>
             </div>
         </div>

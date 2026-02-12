@@ -39,6 +39,7 @@ $routes->add('/cart/(:segment)/finishTrans', 'Cart::finishTrans/$1');
 $routes->get('/transaksi', 'Transaksi::index');
 $routes->add('/transaksi/(:segment)/detail', 'Transaksi::detail/$1');
 $routes->get('tentang', 'Tentang::index');
+$routes->get('/admin/dashboard', 'Dashboard::index');
 
 
 

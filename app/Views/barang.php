@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Barang</h1>
+                    <h1>Menu</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                        <li class="breadcrumb-item active">Barang</li>
+                        <li class="breadcrumb-item active">Menu</li>
                     </ol>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <a href="<?= base_url('barang/add') ?>" class="btn btn-sm btn-outline-secondary">Tambah barang</a>
+            <a href="<?= base_url('barang/add') ?>" class="btn btn-sm btn-outline-secondary">Add Menu</a>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -38,10 +38,10 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                   <tr>
-                    <th>Kode Barang</th>
-                    <th>Nama Barang</th>
-                    <th>Gambar</th>
-                    <th>Aksi</th>
+                    <th>Item Code</th>
+                    <th>Item Name</th>
+                    <th>Image</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -75,8 +75,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h2 class="h2">Anda yakin?</h2>
-        <p>Data akan dihapus</p>
+        <h2 class="h2">Are You Sure?</h2>
+        <p>This data will be permanently deleted</p>
       </div>
       <div class="modal-footer">
           <a href="#" role="button" id="delete-button" class="btn btn-danger">Delete</a>
